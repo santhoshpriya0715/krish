@@ -1,2 +1,20 @@
 https://www.figma.com/file/rpepR0pJsfSd4blK2hzLaa/GAAMETIIME-MOBILE-UI-KIT-(Community)?type=design&node-id=1-6874&t=deKI6CaO08S4781C-0
 https://www.figma.com/community/file/1232527010242095815
+https://itunes.apple.com/in/rss/topalbums/limit=25/json
+
+
+
+Hi ,
+Please find below details for your Machine Task
+
+The application should have Sign up, Login functionality using a local database. Sign up screen should have the features of collecting some basic information from users and login should be done by validating the user email address and password. Users must also have an option to change the password.
+After Login:
+Users should redirect to the home page which should be controlled by TabBar.
+1. On the initial tab you must use the below URL (Web Service) to display the im:name and im:image in list view which is under the entry Array of the below URL.  (Pagination must be used)
+https://itunes.apple.com/in/rss/topalbums/limit=25/json
+2. On the second tab you should display the user profile from local database, and also should have an option to logout from the application.
+Note: Redux should be used to manage the state for logged in user.
+Once the Task is completed you can either zip the code or share it via drive and send it across in email.
+Task duration: 2 days.
+If you have any questions regarding the task please feel free to contact us.,
+Please find below details for your Machine Task

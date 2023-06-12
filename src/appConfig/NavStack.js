@@ -45,9 +45,9 @@ const AuthStack = () => {
 const NavStack = ({stackType}) => {
     switch (stackType) {
         case 0:
-            return AuthStack
+            return <AuthStack />
         case 1:
-            return HomeStack
+            return <HomeStack />
     }
 }
 

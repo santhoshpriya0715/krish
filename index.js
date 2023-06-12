@@ -3,6 +3,8 @@ import { name as appName } from './app.json';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as StoreProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ReduxStore, persistor } from './src/redux/Store';
+import RouteNavigation from './src/appConfig/RouteNavigation';
 
 const AppContainer = () => {
     return (

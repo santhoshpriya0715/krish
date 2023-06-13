@@ -12,6 +12,8 @@ import { shareStyles } from '../../constants/SharedStyles'
 import { usePopupContext } from '../../utils/popUp/PopupContext'
 import AlertComp from '../../baseComponent/AlertComp'
 import { ValidateData } from '../../constants/ValidationReg'
+import { useDispatch, useSelector } from 'react-redux'
+import { SignUpUpdate } from '../../redux/actions/DBActions'
 
 
 const SignUpScreen = () => {
@@ -24,19 +26,63 @@ const SignUpScreen = () => {
   const [password, setPassword] = useState('')
   const [confPassword, setConfPassword] = useState('')
   const [validate, setValidate] = useState(null)
+  const signedUsers = useSelector(state => state.dbReducer)
+  const dispatch = useDispatch()
+
   const createOnPress = () => {
+    const emailE = email.trim()
+    const fullNameE = fullName.trim()
+    const userNameE = userName.trim()
+    const mobileNumberE = mobileNumber.trim()
+    const passwordE = password.trim()
+    const confPasswordE = confPassword.trim()
     if (
-      ValidateData(email, 'Email') ||
-      ValidateData(password, 'Password') ||
-      ValidateData(fullName, 'Full Name') ||
-      ValidateData(mobileNumber, 'Mobile Number') ||
-      ValidateData(password, 'Password') ||
-      ValidateData(confPassword, 'Password')
+      ValidateData(emailE, 'Email') ||
+      ValidateData(userNameE, 'Username') ||
+      ValidateData(fullNameE, 'Full Name') ||
+      ValidateData(mobileNumberE, 'Mobile Number') ||
+      ValidateData(passwordE, 'Password') ||
+      ValidateData(confPasswordE, 'Password')
     ) {
       setValidate(validate == null ? true : !validate)
       return
     }
-    
+
+    if (!(password == confPassword)) {
+      popUp.open(
+        <AlertComp
+          title={T.confirm_password_not_match}
+          btnTxt={T.ok}
+          btnOnPress={() => {
+            popUp.hide()
+          }}
+
+        />
+      );
+      return
+    }
+
+    if (signedUsers.signUpData && signedUsers.signUpData.has(userNameE)) {
+      popUp.open(
+        <AlertComp
+          title={T.user_name_exist}
+          btnTxt={T.ok}
+          btnOnPress={() => {
+            popUp.hide()
+          }}
+
+        />
+      );
+      return
+    }
+    dispatch(
+      SignUpUpdate({
+        name: fullNameE,
+        email: emailE,
+        phoneNumber: mobileNumberE,
+        password: passwordE,
+        username: userNameE
+      }))
     popUp.open(
       <AlertComp
         title={T.success_signup}

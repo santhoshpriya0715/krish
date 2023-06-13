@@ -4,7 +4,7 @@ import { Colors } from '../constants/Colors';
 
 const BaseSafeViewComp = ({ children, statusBar }) => {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: Colors.white }}>
             <StatusBar barStyle={'dark-content'} backgroundColor={Colors.white} animated={true} {...statusBar} />
             {
                 children

@@ -1,10 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View, Animated } from 'react-native'
-import React, { useRef, useEffect } from 'react'
+import { View } from 'react-native'
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeComponent from './component/HomeComponent';
 import ProfileComponent from './component/ProfileComponent';
-import { Colors } from '../../constants/Colors';
-import { Fonts } from '../../constants/Fonts';
 import BottomTabbarItem from './component/BottomTabbarItem';
 
 
@@ -63,7 +61,3 @@ const BottomTabBarScreen = () => {
 }
 
 export default BottomTabBarScreen
-
-const styles = StyleSheet.create({
-
-})

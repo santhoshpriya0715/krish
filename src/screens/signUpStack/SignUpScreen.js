@@ -1,12 +1,11 @@
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 import BaseSafeViewComp from '../../baseComponent/BaseSafeViewComp'
 import { Colors } from '../../constants/Colors'
 import TextBaseComp from '../../baseComponent/TextBaseComp'
 import { T } from '../../constants/T'
 import { Fonts } from '../../constants/Fonts'
-import { StackActions, useNavigation } from '@react-navigation/native'
-import { NavScreenName } from '../../constants/NavigationScreens'
+import { useNavigation } from '@react-navigation/native'
 import BaseTextInput from '../../baseComponent/BaseTextInput'
 
 
@@ -14,11 +13,14 @@ const SignUpScreen = () => {
   const navigation = useNavigation()
   return (
     <BaseSafeViewComp>
-      <ScrollView contentContainerStyle={styles.scrollView}>
+      <ScrollView keyboardShouldPersistTaps="always" contentContainerStyle={styles.scrollView}>
         <View style={styles.subContainer}>
           <TextBaseComp style={styles.titleTxt} children={T.create_account} />
           <TextBaseComp style={styles.subDesTxt} children={T.fill_in_the_form} />
-          <BaseTextInput />
+          <View style={styles.txtInputContainer}>
+            <BaseTextInput placeholder={T.full_name} />
+            <BaseTextInput />
+          </View>
         </View>
       </ScrollView>
     </BaseSafeViewComp>
@@ -47,5 +49,8 @@ const styles = StyleSheet.create({
     color: Colors.subText,
     fontSize: 14,
     fontFamily: Fonts.regular
+  },
+  txtInputContainer: {
+    marginTop: 40
   }
 })

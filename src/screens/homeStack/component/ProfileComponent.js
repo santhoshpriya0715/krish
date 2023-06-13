@@ -1,13 +1,25 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BaseSafeViewComp from '../../../baseComponent/BaseSafeViewComp'
 import TextBaseComp from '../../../baseComponent/TextBaseComp'
 import { T } from '../../../constants/T'
 import { Colors } from '../../../constants/Colors'
 import { Fonts } from '../../../constants/Fonts'
 import ProfileCard from '../../component/listCards/ProfileCard'
+import { useSelector } from 'react-redux'
 
 const ProfileComponent = () => {
+  const authReducer = useSelector(state => state.authReducer)
+  const [profileData, setProfileData] = useState([])
+  console.log(profileData)
+  useEffect(() => {
+    const data = authReducer
+    delete data.authStep
+    delete data.username
+    const tem2 = Object.entries(data)
+    tem2.push(['logout', ''])
+    setProfileData(tem2)
+  }, [authReducer])
   return (
     <BaseSafeViewComp>
       <View style={styles.mainContainer}>

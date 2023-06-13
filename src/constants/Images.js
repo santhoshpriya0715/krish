@@ -6,5 +6,6 @@ export const Images = {
     user: require('../assets/images/profile/user.png'),
     mobileBook: require('../assets//images/profile/book.png'),
     password: require('../assets/images/profile/password.png'),
-    next: require('../assets/images/profile/next.png')
+    next: require('../assets/images/profile/next.png'),
+    back: require('../assets/images/profile/back.png')
 }

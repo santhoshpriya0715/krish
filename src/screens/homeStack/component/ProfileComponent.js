@@ -10,12 +10,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AuthLogout } from '../../../redux/actions/AuthActions'
 import { usePopupContext } from '../../../utils/popUp/PopupContext'
 import AlertComp from '../../../baseComponent/AlertComp'
+import {  useNavigation } from '@react-navigation/native'
+import { NavScreenName } from '../../../constants/NavigationScreens'
 
 const ProfileComponent = () => {
   const authReducer = useSelector(state => state.authReducer)
   const [profileData, setProfileData] = useState([])
   const dispatch = useDispatch()
   const popUp = usePopupContext();
+  const navigation = useNavigation()
   useEffect(() => {
     const data = JSON.parse(JSON.stringify(authReducer))
     delete data.authStep
@@ -27,6 +30,7 @@ const ProfileComponent = () => {
   const itemPress = (ourImage) => {
     switch (ourImage) {
       case 'password':
+        navigation.navigate(NavScreenName.changePassword)
         break;
       case 'logout':
         popUp.open(

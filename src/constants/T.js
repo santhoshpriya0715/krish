@@ -28,5 +28,8 @@ export const T = {
     do_not_have_account: `Don’t have an account?`,
     user_name_password_wrong: `Username or Password wrong`,
     logout_message: `Are you sure, Do you want to continue logout`,
-    cancel : `Cancel`
+    cancel : `Cancel`,
+    change_password: 'Change\nPassword',
+    update: 'Update',
+    enter_correct_password: 'Enter correct Password'
 }

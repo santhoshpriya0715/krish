@@ -24,6 +24,13 @@ const HomeStack = () => {
                 name={NavScreenName.home}
                 component={BottomTabBarScreen}
             />
+            <Stack.Screen
+                name={NavScreenName.changePassword}
+                component={ChangePasswordScreen}
+                options={{
+                    animation: 'slide_from_right'
+                }}
+            />
         </Stack.Navigator>
     )
 }
@@ -41,13 +48,6 @@ const AuthStack = () => {
             <Stack.Screen
                 name={NavScreenName.signUp}
                 component={SignUpScreen}
-                options={{
-                    animation: 'slide_from_left'
-                }}
-            />
-            <Stack.Screen
-                name={NavScreenName.changePassword}
-                component={ChangePasswordScreen}
                 options={{
                     animation: 'slide_from_left'
                 }}

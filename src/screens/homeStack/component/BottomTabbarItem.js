@@ -55,5 +55,3 @@ const BottomTabbarItem = ({ index, onPress, label, routeLength, isFocused }) => 
 }
 
 export default BottomTabbarItem
-
-const styles = StyleSheet.create({})

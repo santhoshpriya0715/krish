@@ -54,7 +54,7 @@ const BottomTabBarScreen = () => {
       }}
       tabBar={props => <MyTabBar {...props} />}
     >
-      <Tab.Screen name="Home" component={HomeComponent} />
+      <Tab.Screen name="Blog" component={HomeComponent} />
       <Tab.Screen name="Profile" component={ProfileComponent} />
     </Tab.Navigator>
   );

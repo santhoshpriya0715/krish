@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: Colors.primary,
         padding: 15,
+        paddingStart: 20,
+        paddingEnd: 20,
         borderRadius: 20
     },
     txt: {

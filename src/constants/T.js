@@ -21,5 +21,10 @@ export const T = {
     err_char_only: `Alphabetical character only`,
     err_valid_number: `Enter a valid mobile number`,
     user_name_exist: `Username already exist`,
-    confirm_password_not_match: 'Password are not match'
+    user_name_not_exist: `Username not exist`,
+    confirm_password_not_match: 'Password are not match',
+    welcome_back: `Welcome Back!`,
+    login_to_continue: `Kindly login to continue.`,
+    do_not_have_account: `Don’t have an account?`,
+    user_name_password_wrong: `Username or Password wrong`
 }

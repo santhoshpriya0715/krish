@@ -19,5 +19,7 @@ export const T = {
     err_user_name_chat: `username cannot contain an special characters like $, %, @, % etc`,
     err_user_name_start: `Start the username with alphabetical character`,
     err_char_only: `Alphabetical character only`,
-    err_valid_number: `Enter a valid mobile number`
+    err_valid_number: `Enter a valid mobile number`,
+    user_name_exist: `Username already exist`,
+    confirm_password_not_match: 'Password are not match'
 }

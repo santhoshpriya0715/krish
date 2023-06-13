@@ -11,18 +11,21 @@ import { T } from '../../constants/T'
 import { Fonts } from '../../constants/Fonts'
 import BaseButton from '../../baseComponent/BaseButton'
 import { ValidateData } from '../../constants/ValidationReg'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { usePopupContext } from '../../utils/popUp/PopupContext'
 import AlertComp from '../../baseComponent/AlertComp'
+import { PasswordUpdate } from '../../redux/actions/DBActions'
 
 const ChangePasswordScreen = () => {
   const navigation = useNavigation()
-  const [oldPassword, setOldPassword] = useState()
+  const [oldPassword, setOldPassword] = useState('')
   const [password, setPassword] = useState('')
   const [confPassword, setConfPassword] = useState('')
   const [validate, setValidate] = useState(null)
   const authReducer = useSelector(state => state.authReducer)
   const popUp = usePopupContext();
+  const signedUsers = useSelector(state => state.dbReducer)
+  const dispatch = useDispatch()
   useEffect(() => {
     navigation.setOptions(
       {
@@ -42,6 +45,7 @@ const ChangePasswordScreen = () => {
     )
   }, [])
   const onChangePassword = () => {
+    const oldPasswordE = oldPassword.trim()
     const passwordE = password.trim()
     const confPasswordE = confPassword.trim()
     if (
@@ -52,7 +56,7 @@ const ChangePasswordScreen = () => {
       return
     }
 
-    if (authReducer.password != confPasswordE) {
+    if (authReducer.password != oldPasswordE) {
       popUp.open(
         <AlertComp
           title={T.enter_correct_password}
@@ -65,6 +69,37 @@ const ChangePasswordScreen = () => {
       );
       return
     }
+
+    if (passwordE != confPasswordE) {
+      popUp.open(
+        <AlertComp
+          title={T.confirm_password_not_match}
+          btnTxt={T.ok}
+          btnOnPress={() => {
+            popUp.hide()
+          }}
+
+        />
+      );
+      return
+    }
+
+    dispatch(PasswordUpdate({
+      username: authReducer.username,
+      password: passwordE
+    }))
+
+    popUp.open(
+      <AlertComp
+        title={T.password_changed}
+        btnTxt={T.ok}
+        btnOnPress={() => {
+          navigation.goBack()
+          popUp.hide()
+        }}
+
+      />
+    );
 
 
   }

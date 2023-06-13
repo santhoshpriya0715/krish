@@ -31,5 +31,6 @@ export const T = {
     cancel : `Cancel`,
     change_password: 'Change\nPassword',
     update: 'Update',
-    enter_correct_password: 'Enter correct Password'
+    enter_correct_password: 'Enter correct Password',
+    password_changed: `Password has been changed successfully`
 }

@@ -6,7 +6,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ReduxStore, persistor } from './src/redux/Store';
 import RouteNavigation from './src/appConfig/RouteNavigation';
 import { Provider } from 'react-native-paper';
-
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 const AppContainer = () => {
     return (
         <SafeAreaProvider>

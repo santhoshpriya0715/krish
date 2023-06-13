@@ -64,7 +64,6 @@ const ProfileComponent = () => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatList}
           renderItem={({ item, index }) => {
-            console.log(item)
             return (
               <ProfileCard onPress={() => { itemPress(item[0]) }} key={index} ourImage={item[0]} text={item[1]} />
             )

@@ -9,12 +9,25 @@ import BaseButton from '../../baseComponent/BaseButton'
 import PressableText from '../../baseComponent/PressableText'
 import { NavScreenName } from '../../constants/NavigationScreens'
 import { shareStyles } from '../../constants/SharedStyles'
+import { usePopupContext } from '../../utils/popUp/PopupContext'
+import AlertComp from '../../baseComponent/AlertComp'
 
 
 const SignUpScreen = () => {
   const navigation = useNavigation()
+  const popUp = usePopupContext();
   const createOnPress = () => {
+    popUp.open(
+      <AlertComp
+        title={T.success_signup}
+        btnTxt={T.ok}
+        btnOnPress={() => {
+          navigation.dispatch(StackActions.replace(NavScreenName.login))
+          popUp.hide()
+        }}
 
+      />
+    );
   }
   return (
     <BaseSafeViewComp>
@@ -44,5 +57,3 @@ const SignUpScreen = () => {
 }
 
 export default SignUpScreen
-
-

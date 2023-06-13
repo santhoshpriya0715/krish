@@ -8,5 +8,8 @@ export const T = {
     password: `Password`,
     conf_password: `Confirm Password`,
     have_account : `Already have an account?`,
-    login: `Login`
+    login: `Login`,
+    success_signup: `You have successfully signed up, Please log in to get started.`,
+    ok: `Ok`,
+    yes: `Yes`
 }

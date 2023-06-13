@@ -50,7 +50,7 @@ const AuthStack = () => {
 
 
 const NavStack = ({ stackType }) => {
-    switch (stackType) {
+    switch (1) {
         case 0:
             return <AuthStack />
         case 1:

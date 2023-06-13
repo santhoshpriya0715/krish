@@ -5,6 +5,7 @@ import { Provider as StoreProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ReduxStore, persistor } from './src/redux/Store';
 import RouteNavigation from './src/appConfig/RouteNavigation';
+import { Provider } from 'react-native-paper';
 
 const AppContainer = () => {
     return (
@@ -12,7 +13,9 @@ const AppContainer = () => {
             <StatusBar backgroundColor={'white'} barStyle={'dark-content'} animated={true} />
             <StoreProvider store={ReduxStore}>
                 <PersistGate loading={null} persistor={persistor}>
-                    <RouteNavigation />
+                    <Provider>
+                        <RouteNavigation />
+                    </Provider>
                 </PersistGate>
             </StoreProvider>
         </SafeAreaProvider>

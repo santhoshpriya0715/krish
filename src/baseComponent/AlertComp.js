@@ -6,12 +6,16 @@ import { Fonts } from '../constants/Fonts'
 import { Colors } from '../constants/Colors'
 import { shareStyles } from '../constants/SharedStyles'
 
-const AlertComp = ({ title, btnTxt, btnOnPress }) => {
+const AlertComp = ({ title, btnTxt, btnOnPress, btnNoPress = null, noTxt }) => {
     return (
         <View >
             <TextBaseComp style={styles.titleText} children={title} />
             <View style={styles.pressTxtContainer}>
-                <PressableText style={[shareStyles.pressableTxt, {fontSize: 20}]} onPress={btnOnPress} children={btnTxt} />
+                {
+                    btnNoPress && <PressableText style={[shareStyles.pressableTxt, { fontSize: 20 }]} onPress={btnNoPress} children={noTxt} />
+                }
+
+                <PressableText style={[shareStyles.pressableTxt, { fontSize: 20 }]} onPress={btnOnPress} children={btnTxt} />
             </View>
         </View>
     )
@@ -27,8 +31,10 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     pressTxtContainer: {
-        marginTop: 20, 
+        marginTop: 20,
         paddingEnd: 20,
-        alignItems: 'flex-end'
+        justifyContent: 'flex-end',
+        columnGap: 40,
+        flexDirection: 'row'
     }
 })

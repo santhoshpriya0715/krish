@@ -6,20 +6,47 @@ import { T } from '../../../constants/T'
 import { Colors } from '../../../constants/Colors'
 import { Fonts } from '../../../constants/Fonts'
 import ProfileCard from '../../component/listCards/ProfileCard'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { AuthLogout } from '../../../redux/actions/AuthActions'
+import { usePopupContext } from '../../../utils/popUp/PopupContext'
+import AlertComp from '../../../baseComponent/AlertComp'
 
 const ProfileComponent = () => {
   const authReducer = useSelector(state => state.authReducer)
   const [profileData, setProfileData] = useState([])
-  console.log(profileData)
+  const dispatch = useDispatch()
+  const popUp = usePopupContext();
   useEffect(() => {
     const data = authReducer
     delete data.authStep
     delete data.username
     const tem2 = Object.entries(data)
-    tem2.push(['logout', ''])
+    tem2.push(['logout', 'Logout'])
     setProfileData(tem2)
   }, [authReducer])
+  const itemPress = (ourImage) => {
+    switch (ourImage) {
+      case 'password':
+        break;
+      case 'logout':
+        popUp.open(
+          <AlertComp
+            title={T.logout_message}
+            btnTxt={T.ok}
+            btnOnPress={() => {
+              dispatch(AuthLogout())
+              popUp.hide()
+            }}
+            noTxt={T.cancel}
+            btnNoPress={() => {
+              popUp.hide()
+            }}
+          />
+        );
+
+        break;
+    }
+  }
   return (
     <BaseSafeViewComp>
       <View style={styles.mainContainer}>
@@ -29,12 +56,13 @@ const ProfileComponent = () => {
         </View>
         <View style={{ height: 1, backgroundColor: Colors.trans, marginTop: 20, marginBottom: 20 }} />
         <FlatList
-          data={[1]}
+          data={profileData}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatList}
-          renderItem={() => {
+          renderItem={({ item, index }) => {
+            console.log(item)
             return (
-              <ProfileCard />
+              <ProfileCard onPress={() => { itemPress(item[0]) }} key={index} ourImage={item[0]} text={item[1]} />
             )
           }}
         />

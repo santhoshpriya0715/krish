@@ -37,7 +37,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         };
 
         return (
-          <BottomTabbarItem index={index} onPress={onPress} label={label} routeLength={state.routes.length} isFocused={isFocused} />
+          <BottomTabbarItem key={index} index={index} onPress={onPress} label={label} routeLength={state.routes.length} isFocused={isFocused} />
         );
       })}
 

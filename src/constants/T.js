@@ -1,18 +1,18 @@
 export const T = {
     create_account: `Create Account`,
     fill_in_the_form: `Hi, kindly fill in the form to proceed`,
-    full_name : `Full Name`,
+    full_name: `Full Name`,
     user_name: `User Name`,
     mobile_number: `Mobile Number`,
     email: `Email`,
     password: `Password`,
     conf_password: `Confirm Password`,
-    have_account : `Already have an account?`,
+    have_account: `Already have an account?`,
     login: `Login`,
     success_signup: `You have successfully signed up, Please log in to get started.`,
     ok: `Ok`,
     yes: `Yes`,
-    err_enter : ` is required.`,
+    err_enter: ` is required.`,
     err_email: `Enter valid Email`,
     err_pass: `Password must be 8 character and must contain one special char, uppercase, lowercase and number`,
     err_must_eight: `Must contain 8 characters`,
@@ -26,5 +26,7 @@ export const T = {
     welcome_back: `Welcome Back!`,
     login_to_continue: `Kindly login to continue.`,
     do_not_have_account: `Don’t have an account?`,
-    user_name_password_wrong: `Username or Password wrong`
+    user_name_password_wrong: `Username or Password wrong`,
+    logout_message: `Are you sure, Do you want to continue logout`,
+    cancel : `Cancel`
 }

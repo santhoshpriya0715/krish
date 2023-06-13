@@ -6,6 +6,7 @@ import BottomTabBarScreen from '../screens/homeStack/BottomTabBarScreen';
 import LoginScreen from '../screens/signUpStack/LoginScreen';
 import SignUpScreen from '../screens/signUpStack/SignUpScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ChangePasswordScreen from '../screens/homeStack/ChangePasswordScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +41,13 @@ const AuthStack = () => {
             <Stack.Screen
                 name={NavScreenName.signUp}
                 component={SignUpScreen}
+                options={{
+                    animation: 'slide_from_left'
+                }}
+            />
+            <Stack.Screen
+                name={NavScreenName.changePassword}
+                component={ChangePasswordScreen}
                 options={{
                     animation: 'slide_from_left'
                 }}

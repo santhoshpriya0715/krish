@@ -1,7 +1,7 @@
 import { Actions } from "../actions/constants";
 
 const initialState = {
-    signUpData: null
+    signUpData: []
 }
 
 const DBReducer = (
@@ -11,21 +11,13 @@ const DBReducer = (
     const { type, payload } = action;
     switch (type) {
         case Actions.signUpAdd:
-            var data = state.signUpData
-            if (data) {
-                if (!data.has(payload.username)) {
-                    data.set(payload.username, payload)
-                }
-            } else {
-                data = new Map([[payload.username, payload]])
-            }
-            return { ...state, signUpData: data }
+            state.signUpData.push({ ...payload })
+            return { ...state }
 
         case Actions.passwordUpdate:
-            var passData = state.signUpData
-            const userData = passData.get(payload.username)
-            passData.set(payload.username, { ...userData, password: payload.password })
-            return { ...state, signUpData: data }
+            const data = state.signUpData.findIndex((value, index) => { return value.username == payload.username })
+            state.signUpData[data] = { ...state.signUpData[data], password: payload.password }
+            return { ...state }
         default:
             return state;
     }

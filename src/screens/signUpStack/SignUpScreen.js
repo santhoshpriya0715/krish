@@ -61,8 +61,7 @@ const SignUpScreen = () => {
       );
       return
     }
-
-    if (signedUsers.signUpData && signedUsers.signUpData.has(userNameE)) {
+    if (signedUsers.signUpData && signedUsers.signUpData.findIndex((value, index) => { return value.username == userNameE }) != -1) {
       popUp.open(
         <AlertComp
           title={T.user_name_exist}

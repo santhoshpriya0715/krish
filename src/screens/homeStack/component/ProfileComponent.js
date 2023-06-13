@@ -17,7 +17,7 @@ const ProfileComponent = () => {
   const dispatch = useDispatch()
   const popUp = usePopupContext();
   useEffect(() => {
-    const data = authReducer
+    const data = JSON.parse(JSON.stringify(authReducer))
     delete data.authStep
     delete data.username
     const tem2 = Object.entries(data)
@@ -52,7 +52,7 @@ const ProfileComponent = () => {
       <View style={styles.mainContainer}>
         <View style={styles.headerComponent}>
           <TextBaseComp style={styles.titleTxt} children={T.user_name} />
-          <TextBaseComp style={styles.desTxt} children={'santhosh'} />
+          <TextBaseComp style={styles.desTxt} children={authReducer.username} />
         </View>
         <View style={{ height: 1, backgroundColor: Colors.trans, marginTop: 20, marginBottom: 20 }} />
         <FlatList

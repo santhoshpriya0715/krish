@@ -10,12 +10,13 @@ const RouteNavigation = () => {
     const dbReducer = useSelector(state => state.dbReducer)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        if (dbReducer.signUpData && authReducer.authStep) {
-            const data = dbReducer.signUpData.get(authReducer.username)
-            dispatch(AuthUpdate({ ...data }))
-        }
-    }, [dbReducer])
+    // useEffect(() => {
+    //     if (dbReducer.signUpData && authReducer.authStep) {
+    //         console.log("data",dbReducer.signUpData, " ", authReducer.authStep)
+    //         // const data = dbReducer.signUpData.get(authReducer.username)
+    //         // dispatch(AuthUpdate({ ...data }))
+    //     }
+    // }, [dbReducer])
 
     return (
         <PopupRoot>

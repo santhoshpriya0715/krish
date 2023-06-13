@@ -35,8 +35,9 @@ const LoginScreen = () => {
       setValidate(validate == null ? true : !validate)
       return
     }
+    const id = signedUsers.signUpData.findIndex((value, index) => { return value.username == userNameE })
     if (signedUsers.signUpData) {
-      if (!signedUsers.signUpData.has(userNameE)) {
+      if (id == -1) {
         popUp.open(
           <AlertComp
             title={T.user_name_not_exist}
@@ -50,7 +51,7 @@ const LoginScreen = () => {
       }
     }
 
-    const signInData = signedUsers.signUpData.get(userNameE)
+    const signInData = signedUsers.signUpData[id]
 
     if (!(signInData.password == passwordE)) {
       popUp.open(

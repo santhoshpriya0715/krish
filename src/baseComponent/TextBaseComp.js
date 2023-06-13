@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const TextBaseComp = ({ type, children, ...props }) => {
+const TextBaseComp = ({ children, ...props }) => {
     return (
         <Text  {...props}>
             {children}

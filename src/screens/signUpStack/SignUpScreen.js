@@ -27,6 +27,7 @@ const SignUpScreen = () => {
   const [confPassword, setConfPassword] = useState('')
   const [validate, setValidate] = useState(null)
   const signedUsers = useSelector(state => state.dbReducer)
+  console.log(signedUsers)
   const dispatch = useDispatch()
 
   const createOnPress = () => {

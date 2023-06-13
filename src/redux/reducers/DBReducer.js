@@ -11,7 +11,7 @@ const DBReducer = (
     const { type, payload } = action;
     switch (type) {
         case Actions.signUpAdd:
-            const data = state.signUpData
+            var data = state.signUpData
             if (data) {
                 if (!data.has(payload.username)) {
                     data.set(payload.username, payload)
@@ -22,7 +22,7 @@ const DBReducer = (
             return { ...state, signUpData: data }
 
         case Actions.passwordUpdate:
-            const passData = state.signUpData
+            var passData = state.signUpData
             const userData = passData.get(payload.username)
             passData.set(payload.username, { ...userData, password: payload.password })
             return { ...state, signUpData: data }

@@ -1,12 +1,9 @@
-import {
-    createStackNavigator
-} from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavScreenName } from '../constants/NavigationScreens';
 import BottomTabBarScreen from '../screens/homeStack/BottomTabBarScreen';
+import ChangePasswordScreen from '../screens/homeStack/ChangePasswordScreen';
 import LoginScreen from '../screens/signUpStack/LoginScreen';
 import SignUpScreen from '../screens/signUpStack/SignUpScreen';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ChangePasswordScreen from '../screens/homeStack/ChangePasswordScreen';
 
 
 const Stack = createNativeStackNavigator();

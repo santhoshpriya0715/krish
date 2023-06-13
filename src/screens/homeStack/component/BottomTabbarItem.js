@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, TouchableOpacity, Animated, Easing } from 'react-native'
+import React, { useEffect, useRef } from 'react'
+import { Animated, Easing, Text, TouchableOpacity, View } from 'react-native'
 import { Colors } from '../../../constants/Colors'
 import { Fonts } from '../../../constants/Fonts'
-import React, { useRef, useEffect } from 'react'
 
 const BottomTabbarItem = ({ index, onPress, label, routeLength, isFocused }) => {
     const animationRef = useRef(new Animated.Value(0)).current

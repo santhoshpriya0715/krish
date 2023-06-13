@@ -7,9 +7,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Portal } from 'react-native-paper';
-import { usePopupContext } from './PopupContext';
-import { SCREEN_WIDTH } from '../../constants/Constants';
 import { Colors } from '../../constants/Colors';
+import { SCREEN_WIDTH } from '../../constants/Constants';
+import { usePopupContext } from './PopupContext';
 
 
 const PopupComponent = ({ children }) => {

@@ -15,12 +15,12 @@ const AuthReducer = (
 ) => {
     const { type, payload } = action;
     switch (type) {
-        case Actions.authUpdate: 
+        case Actions.authUpdate:
             return { ...state, ...payload };
-        
-        case Actions.authLogout: 
+
+        case Actions.authLogout:
             return initialState
-        
+
         default:
             return state;
     }

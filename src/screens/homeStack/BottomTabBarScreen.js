@@ -1,9 +1,9 @@
-import { View } from 'react-native'
-import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import { View } from 'react-native';
+import BottomTabbarItem from './component/BottomTabbarItem';
 import HomeComponent from './component/HomeComponent';
 import ProfileComponent from './component/ProfileComponent';
-import BottomTabbarItem from './component/BottomTabbarItem';
 
 
 

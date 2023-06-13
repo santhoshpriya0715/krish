@@ -32,7 +32,7 @@ const ProfileCard = ({ onPress, ourImage, text }) => {
             <TextBaseComp style={styles.txt} children={ourImage == 'password' ? '********' : text} />
             {
                 ourImage == 'password' &&
-                <View style={{ flex: 1, alignItems: 'flex-end'}}>
+                <View style={{ flex: 1, alignItems: 'flex-end' }}>
                     <Image resizeMode='contain' style={{ height: 20, width: 20, tintColor: Colors.primary }} source={Images.next} />
                 </View>
 

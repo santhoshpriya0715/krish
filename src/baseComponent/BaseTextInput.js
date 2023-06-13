@@ -1,9 +1,9 @@
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import React, { useState, useEffect } from 'react'
-import { TextInput, HelperText } from 'react-native-paper'
-import { Images } from '../constants/Images'
+import { HelperText, TextInput } from 'react-native-paper'
 import { Colors } from '../constants/Colors'
 import { Fonts } from '../constants/Fonts'
+import { Images } from '../constants/Images'
 import { ValidateData } from '../constants/ValidationReg'
 
 

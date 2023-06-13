@@ -1,10 +1,10 @@
-import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import TextBaseComp from './TextBaseComp'
-import PressableText from './PressableText'
-import { Fonts } from '../constants/Fonts'
+import { StyleSheet, View } from 'react-native'
 import { Colors } from '../constants/Colors'
+import { Fonts } from '../constants/Fonts'
 import { shareStyles } from '../constants/SharedStyles'
+import PressableText from './PressableText'
+import TextBaseComp from './TextBaseComp'
 
 const AlertComp = ({ title, btnTxt, btnOnPress, btnNoPress = null, noTxt }) => {
     return (

@@ -29,7 +29,8 @@ export const shareStyles = StyleSheet.create({
     footerContainer: {
         flex: 1,
         marginTop: 24,
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 30
     },
     footerTxt: {
         color: Colors.subText,

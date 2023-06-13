@@ -1,14 +1,26 @@
 import { StyleSheet, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextInput, HelperText } from 'react-native-paper'
 import { Images } from '../constants/Images'
 import { Colors } from '../constants/Colors'
 import { Fonts } from '../constants/Fonts'
+import { ValidateData } from '../constants/ValidationReg'
 
 
 
-const BaseTextInput = ({ value, onChangeText, isSecure = false, error, placeholder, ...props }) => {
+const BaseTextInput = ({ btnType, value, validate, onChangeText, isSecure = false, placeholder, ...props }) => {
     const [passSecure, setPassSecure] = useState(true)
+    const [error, setError] = useState('')
+
+    useEffect(() => {
+        if (validate != null) {
+            const err = ValidateData(value, btnType)
+            if (err) {
+                setError(err)
+            }
+        }
+    }, [validate])
+
     return (
         <View>
             <TextInput
@@ -23,7 +35,10 @@ const BaseTextInput = ({ value, onChangeText, isSecure = false, error, placehold
                 style={styles.txtInput}
                 mode="outlined"
                 value={value}
-                onChangeText={onChangeText}
+                onChangeText={(text) => {
+                    error && setError('')
+                    onChangeText(text)
+                }}
                 secureTextEntry={isSecure == false ? false : passSecure}
                 label={placeholder}
                 placeholder={placeholder}
@@ -37,6 +52,8 @@ const BaseTextInput = ({ value, onChangeText, isSecure = false, error, placehold
                         size={20}
                     />
                 }
+                returnKeyType='done'
+                returnKeyLabel='Done'
                 {
                 ...props
                 }
@@ -45,13 +62,13 @@ const BaseTextInput = ({ value, onChangeText, isSecure = false, error, placehold
                 style={{
                     margin: 0,
                     padding: 0,
-                    height: 20,
+                    // height: 20,
                     paddingVertical: 0,
                     fontSize: 12,
                     fontFamily: Fonts.regular,
                 }}
-                visible={error && error.length > 0}
-                children={error}
+                visible={error.length > 0}
+                children={error.toString()}
                 type={'error'}
             />
         </View>

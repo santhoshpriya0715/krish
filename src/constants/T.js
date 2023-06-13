@@ -11,5 +11,13 @@ export const T = {
     login: `Login`,
     success_signup: `You have successfully signed up, Please log in to get started.`,
     ok: `Ok`,
-    yes: `Yes`
+    yes: `Yes`,
+    err_enter : ` is required.`,
+    err_email: `Enter valid Email`,
+    err_pass: `Password must be 8 character and must contain one special char, uppercase, lowercase and number`,
+    err_must_eight: `Must contain 8 characters`,
+    err_user_name_chat: `username cannot contain an special characters like $, %, @, % etc`,
+    err_user_name_start: `Start the username with alphabetical character`,
+    err_char_only: `Alphabetical character only`,
+    err_valid_number: `Enter a valid mobile number`
 }

@@ -6,3 +6,10 @@ export const SignUpUpdate = (props) => {
         payload: { ...props },
     };
 };
+
+export const PasswordUpdate = ({ username, password }) => {
+    return {
+        type: Actions.passwordUpdate,
+        payload: { username, password }
+    }
+}

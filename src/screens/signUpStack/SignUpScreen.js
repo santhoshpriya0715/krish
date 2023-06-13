@@ -36,7 +36,7 @@ const SignUpScreen = () => {
       setValidate(validate == null ? true : !validate)
       return
     }
-
+    
     popUp.open(
       <AlertComp
         title={T.success_signup}

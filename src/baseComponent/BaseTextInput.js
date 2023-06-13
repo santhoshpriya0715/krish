@@ -23,7 +23,7 @@ const BaseTextInput = ({ value, onChangeText, isSecure = false, error, placehold
                 style={styles.txtInput}
                 mode="outlined"
                 value={value}
-                onChange={onChangeText}
+                onChangeText={onChangeText}
                 secureTextEntry={isSecure == false ? false : passSecure}
                 label={placeholder}
                 placeholder={placeholder}

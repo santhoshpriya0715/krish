@@ -1,5 +1,5 @@
 import { ScrollView, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import BaseSafeViewComp from '../../baseComponent/BaseSafeViewComp'
 import TextBaseComp from '../../baseComponent/TextBaseComp'
 import { T } from '../../constants/T'
@@ -16,6 +16,12 @@ import AlertComp from '../../baseComponent/AlertComp'
 const SignUpScreen = () => {
   const navigation = useNavigation()
   const popUp = usePopupContext();
+  const [fullName, setFullName] = useState('')
+  const [userName, setUserName] = useState('')
+  const [mobileNumber, setMobileNumber] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confPassword, setConfPassword] = useState('')
   const createOnPress = () => {
     popUp.open(
       <AlertComp
@@ -36,12 +42,12 @@ const SignUpScreen = () => {
           <TextBaseComp style={shareStyles.titleTxt} children={T.create_account} />
           <TextBaseComp style={shareStyles.subDesTxt} children={T.fill_in_the_form} />
           <View style={shareStyles.txtInputContainer}>
-            <BaseTextInput placeholder={T.full_name} />
-            <BaseTextInput placeholder={T.user_name} />
-            <BaseTextInput placeholder={T.mobile_number} />
-            <BaseTextInput placeholder={T.email} />
-            <BaseTextInput placeholder={T.password} />
-            <BaseTextInput placeholder={T.conf_password} />
+            <BaseTextInput onChangeText={setFullName} value={fullName} placeholder={T.full_name} />
+            <BaseTextInput onChangeText={setUserName} value={userName} placeholder={T.user_name} />
+            <BaseTextInput onChangeText={setMobileNumber} value={mobileNumber} placeholder={T.mobile_number} />
+            <BaseTextInput onChangeText={setEmail} value={email} placeholder={T.email} />
+            <BaseTextInput onChangeText={setPassword} value={password} placeholder={T.password} />
+            <BaseTextInput onChangeText={setConfPassword} value={confPassword} placeholder={T.conf_password} />
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 30 }}>
             <BaseButton title={T.create_account} onPress={createOnPress} />
